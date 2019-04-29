@@ -25,6 +25,7 @@ namespace DotNet2019Challenge.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            Android.Glide.Forms.Init();
 
             CarouselViewRenderer.Init();
             LoadApplication(new App());
