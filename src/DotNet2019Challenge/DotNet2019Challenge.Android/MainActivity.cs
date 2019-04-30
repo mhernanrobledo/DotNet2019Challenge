@@ -8,7 +8,7 @@ namespace DotNet2019Challenge.Droid
     [Activity(
         Label = "DotNet2019Challenge", 
         Icon = "@mipmap/icon", 
-        Theme = "@style/MainTheme", 
+        Theme = "@style/SplashTheme", 
         MainLauncher = true, 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -17,6 +17,8 @@ namespace DotNet2019Challenge.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+
+            base.SetTheme(resid: Resource.Style.MainTheme);
 
             base.OnCreate(savedInstanceState);
 
