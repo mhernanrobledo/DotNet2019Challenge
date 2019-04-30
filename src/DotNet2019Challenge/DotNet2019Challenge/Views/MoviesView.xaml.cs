@@ -5,17 +5,10 @@ namespace DotNet2019Challenge.Views
 {
     public partial class MoviesView : ContentPage
 	{
-        
-
         public MoviesView ()
 		{
 			InitializeComponent ();
 
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
         }
     }
 }

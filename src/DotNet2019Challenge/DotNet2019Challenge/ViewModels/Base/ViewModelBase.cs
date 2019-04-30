@@ -1,9 +1,9 @@
-﻿using DotNet2019Challenge.Services.Navigation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DotNet2019Challenge.Services.Navigation;
 
 namespace DotNet2019Challenge.ViewModels.Base
 {

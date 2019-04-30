@@ -1,5 +1,4 @@
-﻿using DotNet2019Challenge.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -7,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net;
 using System;
+using DotNet2019Challenge.Models;
 
 namespace DotNet2019Challenge.Services.Movies
 {

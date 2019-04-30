@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Autofac;
 using DotNet2019Challenge.Services.Movies;
 using DotNet2019Challenge.Services.Navigation;
@@ -16,7 +14,6 @@ namespace DotNet2019Challenge.ViewModels.Base
 
         public ViewModelLocator()
         {
-           
             containerBuilder = new ContainerBuilder();
 
             // Services
@@ -30,7 +27,6 @@ namespace DotNet2019Challenge.ViewModels.Base
             {
                 container.Dispose();
             }
-
         }
 
         public T Resolve<T>()

@@ -1,8 +1,5 @@
-﻿using DotNet2019Challenge.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using DotNet2019Challenge.Models;
 
 namespace DotNet2019Challenge.Services.Movies
 {

@@ -1,12 +1,12 @@
-﻿using DotNet2019Challenge.ViewModels;
-using DotNet2019Challenge.ViewModels.Base;
-using DotNet2019Challenge.Views;
-using DotNet2019Challenge.Views.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DotNet2019Challenge.ViewModels;
+using DotNet2019Challenge.ViewModels.Base;
+using DotNet2019Challenge.Views;
+using DotNet2019Challenge.Views.Base;
 
 namespace DotNet2019Challenge.Services.Navigation
 {
@@ -41,7 +41,6 @@ namespace DotNet2019Challenge.Services.Navigation
             await CurrentApplication.MainPage.Navigation.PopAsync();
         }
 
-        
         protected virtual async Task InternalNavigateToAsync(Type viewModelType, object parameter)
         {
             var page = CreateAndBindPage(viewModelType, parameter);

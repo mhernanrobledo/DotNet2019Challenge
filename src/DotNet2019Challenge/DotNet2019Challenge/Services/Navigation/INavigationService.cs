@@ -1,6 +1,6 @@
-﻿using DotNet2019Challenge.ViewModels.Base;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using DotNet2019Challenge.ViewModels.Base;
 
 namespace DotNet2019Challenge.Services.Navigation
 {

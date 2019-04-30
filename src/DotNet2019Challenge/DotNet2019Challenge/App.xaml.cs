@@ -29,7 +29,6 @@ namespace DotNet2019Challenge
             return navigationService.InitializeAsync();
         }
 
-
         protected override void OnStart()
         {
             // Handle when your app starts
