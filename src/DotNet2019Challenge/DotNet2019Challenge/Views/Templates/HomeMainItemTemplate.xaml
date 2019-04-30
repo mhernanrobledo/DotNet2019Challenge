@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="DotNet2019Challenge.Views.Templates.HomeMainItemTemplate">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -39,6 +40,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
             </Grid.RowDefinitions>
+            <!--
             <Image 
 				Grid.Row="0"
 				Aspect="AspectFill"
@@ -54,6 +56,22 @@
                     </OnPlatform>
                 </Image.Source>
             </Image>
+            -->
+            <ffimageloading:CachedImage  
+				Grid.Row="0"
+				Aspect="AspectFill"
+				Source="{Binding Highlight.BackdropPath, Converter={StaticResource MovieImageConverter}, ConverterParameter=Backdrop}" 
+				Style="{StaticResource HighlightImageStyle}"/>
+            <ffimageloading:CachedImage  
+				Grid.Row="0" 
+				Style="{StaticResource HighlightGradientImageStyle}">
+                <ffimageloading:CachedImage.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="Android, iOS" Value="movies_opacity"/>
+                        <On Platform="UWP" Value="Assets/movies-opacity.png"/>
+                    </OnPlatform>
+                </ffimageloading:CachedImage.Source>
+            </ffimageloading:CachedImage>
             <Grid
 				Grid.Row="0"
                 RowSpacing="12"

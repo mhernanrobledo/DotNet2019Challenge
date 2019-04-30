@@ -12,6 +12,7 @@ namespace DotNet2019Challenge.Services.Movies
 {
     public class MoviesService: IMoviesService
     {
+        private readonly HttpClient _httpClient = new HttpClient();
         private readonly JsonSerializerSettings _serializerSettings;
         private static MoviesService _instance;
 
@@ -41,8 +42,8 @@ namespace DotNet2019Challenge.Services.Movies
         {
             string uri = $"{AppSettings.ApiUrl}movie/popular?api_key={AppSettings.ApiKey}&language={language}&page={pageNumber}";
 
-            HttpClient httpClient = CreateHttpClient();
-            HttpResponseMessage response = await httpClient.GetAsync(uri);
+            //HttpClient httpClient = CreateHttpClient();
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
 
             await HandleResponse(response);
 
@@ -56,8 +57,8 @@ namespace DotNet2019Challenge.Services.Movies
         {
             string uri = $"{AppSettings.ApiUrl}movie/top_rated?api_key={AppSettings.ApiKey}&language={language}&page={pageNumber}";
 
-            HttpClient httpClient = CreateHttpClient();
-            HttpResponseMessage response = await httpClient.GetAsync(uri);
+            //HttpClient httpClient = CreateHttpClient();
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
 
             await HandleResponse(response);
 
@@ -71,8 +72,8 @@ namespace DotNet2019Challenge.Services.Movies
         {
             string uri = $"{AppSettings.ApiUrl}tv/popular?api_key={AppSettings.ApiKey}&language={language}&page={pageNumber}";
 
-            HttpClient httpClient = CreateHttpClient();
-            HttpResponseMessage response = await httpClient.GetAsync(uri);
+            //HttpClient httpClient = CreateHttpClient();
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
 
             await HandleResponse(response);
 
@@ -86,8 +87,8 @@ namespace DotNet2019Challenge.Services.Movies
         {
             string uri = $"{AppSettings.ApiUrl}tv/top_rated?api_key={AppSettings.ApiKey}&language={language}&page={pageNumber}";
 
-            HttpClient httpClient = CreateHttpClient();
-            HttpResponseMessage response = await httpClient.GetAsync(uri);
+            //HttpClient httpClient = CreateHttpClient();
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
 
             await HandleResponse(response);
 

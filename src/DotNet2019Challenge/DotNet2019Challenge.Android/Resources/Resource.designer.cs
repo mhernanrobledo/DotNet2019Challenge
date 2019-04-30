@@ -9755,6 +9755,15 @@ namespace DotNet2019Challenge.Droid
 			// aapt resource value: 0x7f030002
 			public const int launcher_foreground = 2130903042;
 			
+			// aapt resource value: 0x7f030003
+			public const int movies_opacity = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int movies_play = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int movies_search = 2130903045;
+			
 			static Mipmap()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
