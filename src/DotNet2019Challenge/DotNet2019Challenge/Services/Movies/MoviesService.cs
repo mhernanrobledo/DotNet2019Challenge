@@ -10,7 +10,7 @@ using System;
 
 namespace DotNet2019Challenge.Services.Movies
 {
-    public class MoviesService
+    public class MoviesService: IMoviesService
     {
         private readonly JsonSerializerSettings _serializerSettings;
         private static MoviesService _instance;

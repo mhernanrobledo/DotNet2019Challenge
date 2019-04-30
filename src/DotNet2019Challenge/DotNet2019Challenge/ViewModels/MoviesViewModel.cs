@@ -1,13 +1,14 @@
-﻿using DotNet2019Challenge.Models;
-using DotNet2019Challenge.Services.Movies;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DotNet2019Challenge.Models;
+using DotNet2019Challenge.Services.Movies;
+using DotNet2019Challenge.ViewModels.Base;
 
 namespace DotNet2019Challenge.ViewModels
 {
-    public class MoviesViewModel : BindableObject
+    public class MoviesViewModel : ViewModelBase
     {
         private bool _isBusy;
         private Movie _highlight;
@@ -75,6 +76,13 @@ namespace DotNet2019Challenge.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public override  Task InitializeAsync(object navigationData)
+        {
+            LoadDataAsync();
+            return base.InitializeAsync(navigationData);
+        }
+
 
         public async Task LoadDataAsync()
         {
