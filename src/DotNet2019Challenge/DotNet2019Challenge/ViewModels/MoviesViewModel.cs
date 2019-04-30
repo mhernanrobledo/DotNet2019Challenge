@@ -1,13 +1,14 @@
-﻿using DotNet2019Challenge.Models;
-using DotNet2019Challenge.Services.Movies;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DotNet2019Challenge.Models;
+using DotNet2019Challenge.Services.Movies;
+using DotNet2019Challenge.ViewModels.Base;
 
 namespace DotNet2019Challenge.ViewModels
 {
-    public class MoviesViewModel : BindableObject
+    public class MoviesViewModel : ViewModelBase
     {
         private bool _isBusy;
         private Movie _highlight;
@@ -15,6 +16,8 @@ namespace DotNet2019Challenge.ViewModels
         private ObservableCollection<Movie> _popularMovies;
         private ObservableCollection<TVShow> _topRatedTvShows;
         private ObservableCollection<TVShow> _popularTvShows;
+
+        private readonly IMoviesService _moviesService;
 
         public bool IsBusy
         {
@@ -76,6 +79,18 @@ namespace DotNet2019Challenge.ViewModels
             }
         }
 
+        public MoviesViewModel(IMoviesService moviesService)
+        {
+            _moviesService = moviesService;
+        }
+
+        public override  Task InitializeAsync(object navigationData)
+        {
+            LoadDataAsync();
+            return base.InitializeAsync(navigationData);
+        }
+
+
         public async Task LoadDataAsync()
         {
             IsBusy = true;
@@ -90,7 +105,7 @@ namespace DotNet2019Challenge.ViewModels
 
         private async Task LoadTopRatedMoviesAync()
         {
-            var result = await MoviesService.Instance.GetTopRatedMoviesAsync();
+            var result = await _moviesService.GetTopRatedMoviesAsync();
 
             TopRatedMovies = new ObservableCollection<Movie>(result.Results);
             Highlight = TopRatedMovies.FirstOrDefault();
@@ -98,21 +113,21 @@ namespace DotNet2019Challenge.ViewModels
 
         private async Task LoadPopularMoviesAync()
         {
-            var result = await MoviesService.Instance.GetPopularMoviesAsync();
+            var result = await _moviesService.GetPopularMoviesAsync();
 
             PopularMovies = new ObservableCollection<Movie>(result.Results);
         }
 
         private async Task LoadTopRatedTvShowsAync()
         {
-            var result = await MoviesService.Instance.GetTopRatedShowsAsync();
+            var result = await _moviesService.GetTopRatedShowsAsync();
 
             TopRatedTvShows = new ObservableCollection<TVShow>(result.Results);
         }
 
         private async Task LoadPopularTvShowsAync()
         {
-            var result = await MoviesService.Instance.GetPopularShowsAsync();
+            var result = await _moviesService.GetPopularShowsAsync();
 
             PopularTvShows = new ObservableCollection<TVShow>(result.Results);
         }

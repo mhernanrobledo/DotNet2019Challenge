@@ -1,5 +1,9 @@
 ﻿using DotNet2019Challenge.Views;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+using DotNet2019Challenge.ViewModels;
+using DotNet2019Challenge.ViewModels.Base;
+using DotNet2019Challenge.Services.Navigation;
 
 namespace DotNet2019Challenge
 {
@@ -9,7 +13,20 @@ namespace DotNet2019Challenge
         {
             InitializeComponent();
 
-            MainPage = new MoviesView();
+            BuildDependencies();
+            
+            InitNavigation();
+
+        }
+        void BuildDependencies()
+        {
+            ViewModelLocator.Instance.Build();
+        }
+
+        Task InitNavigation()
+        {
+            var navigationService = ViewModelLocator.Instance.Resolve<INavigationService>();
+            return navigationService.InitializeAsync();
         }
 
         protected override void OnStart()
